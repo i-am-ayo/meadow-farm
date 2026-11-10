@@ -1,0 +1,41 @@
+{
+  "verified": true,
+  "wallet": "0x19d6586206E06514290e9302C400de949CBCc3ab",
+  "game": "0x41370b425645c8552D04e19F8Ba003893225D57D",
+  "tom": "0x74a9736006abE045E1cbaa7670E8bf2986Ea433a",
+  "balanceTOM": "214.0",
+  "nftId": "1",
+  "completedInSeconds": 256,
+  "claimedStages": 1,
+  "receipts": [
+    {
+      "hash": "0x2417eca94d954843d1c3b135979be6c325254b51c99efe00cda1962f1e16982a",
+      "block": 12103067
+    },
+    {
+      "hash": "0x90662af8082f526243be59bee31793d902675f21d8cf3dd28ca526bef74375f4",
+      "block": 12103068
+    },
+    {
+      "hash": "0xcc8094617749b9d936d744eeea075b391dca17e3b6c4e994792d28c5ef0c568e",
+      "block": 12103069
+    },
+    {
+      "hash": "0xff58bad02ceb5add8d77a51718ac8ac939d90e4c41e2a991974a94f60d58c0d2",
+      "block": 12103070
+    },
+    {
+      "hash": "0x17607580c8815c77207576887257a4dc73ed5f8d2bf2d240cdc62b1d4e8b41d0",
+      "block": 12103071
+    },
+    {
+      "hash": "0xb986442d541791192c068e42b796b5395441ceb9a6edc20cb81b17753ae50c90",
+      "block": 12103072
+    },
+    {
+      "hash": "0x90ff3bfb6c3fb63dafa2e5014ebfeb4f427631d6e0c06ff6a3606a97b7ccba79",
+      "block": 12103098
+    }
+  ],
+  "at": "2026-11-10T07:14:30.365Z"
+}

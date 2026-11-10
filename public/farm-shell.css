@@ -1,0 +1,127 @@
+/* The farm is a bounded game workspace; longer detail panels scroll locally. */
+body.farm-app:not(.market-mode){height:100dvh;overflow:hidden}
+.farm-app>header{height:54px;padding:0 18px;gap:18px;flex-shrink:0}
+.farm-app .brand{font-size:16px;gap:8px;letter-spacing:1px;white-space:nowrap}
+.farm-app .brandicon{font-size:33px}.farm-app .brand small{font-size:7px;letter-spacing:2.7px}
+.farm-app>header>nav{position:static;inset:auto;width:auto;height:100%;margin:0;gap:24px;min-width:0}.farm-app .nav{font-size:11px;white-space:nowrap}
+.farm-app .wallet{gap:7px;white-space:nowrap}.farm-app .wallet b{font-size:16px}.farm-app .wallet small{font-size:9px}
+.farm-app .wallet button{padding:7px 10px;margin-left:4px;font-size:11px}.farm-app .wallet .language-toggle{padding:6px 8px;font-size:9px;margin-right:0}
+.farm-app #farmmain{height:calc(100dvh - 54px);max-width:1800px;padding:9px 14px 6px;display:grid;grid-template-rows:38px 44px minmax(0,1fr) 24px;gap:8px;min-height:0}
+.farm-app #farmmain>.heading,.farm-app #farmmain>footer{display:none}
+.farm-app .farm-actions{padding:0;margin:0;gap:10px;min-width:0}
+.farm-app .action-primary,.farm-app .action-secondary{gap:6px;flex-wrap:nowrap}
+.farm-app .farm-actions button{padding:7px 11px;font-size:11px;min-height:33px;white-space:nowrap;border-radius:7px}
+.farm-app .farm-actions #quick-start{min-width:112px}.farm-app #quick-village{display:none}
+.farm-app .village-strip{margin:0;padding:5px 12px;border-radius:9px;gap:18px;min-width:0;flex-wrap:nowrap}
+.farm-app .village-level{width:190px;min-width:0;gap:8px;flex-shrink:0}
+.farm-app .village-emblem{width:28px;height:28px;font-size:22px;flex-shrink:0}
+.farm-app .village-level b,.farm-app .village-weather b{font-size:11px;line-height:1.2}
+.farm-app .village-level small{font-size:9px;margin-top:3px}.farm-app .village-xp-track{height:3px;margin-top:4px;width:145px}
+.farm-app .village-weather{min-width:80px;width:auto;flex:1;gap:8px;padding-left:14px;border-left:1px solid #dce4d1}
+.farm-app #village-weather-icon{font-size:21px}.farm-app .village-weather small,.farm-app .village-shortcuts{display:none}
+.farm-app .towneconomy{display:flex;flex-direction:row;gap:16px;font-size:11px;white-space:nowrap;margin:0;align-items:center}
+.farm-app .towneconomy b{font-size:15px}.farm-app .day{display:flex;align-items:center;min-width:0;margin:0;border:0;border-left:1px solid #dce4d1;border-radius:0;padding:0 0 0 16px;font-size:10px}
+.farm-app .towneconomy em{font-style:normal;font-size:10px}.farm-app .day>span,.farm-app .day>b{white-space:pre}
+.farm-app .day small{font-size:9px}
+.farm-app .layout{display:grid;grid-template-columns:76px minmax(0,1fr) 306px;gap:10px;align-items:stretch;min-height:0;position:relative}
+.shell-rail{position:static;inset:auto;width:auto;min-width:0;margin:0;display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:5px;height:100%;min-height:0;padding:5px;border:1px solid #dfe6d5;background:#eef3e5;border-radius:12px}
+.shell-rail>button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;min-height:44px;padding:8px 2px;border:1px solid transparent;background:transparent;border-radius:8px;color:#6b825d}
+.shell-rail>button>span{font-size:20px;line-height:1}.shell-rail b{font-size:10px;font-weight:500;line-height:1.3}
+.shell-rail button:hover,.shell-rail button[aria-pressed=true]{background:#fffdf4;border-color:#cfddc1;color:#365e40}
+.shell-center{display:grid;grid-template-rows:minmax(0,1fr) auto;gap:8px;min-width:0;min-height:0}
+.farm-app .world{position:relative;top:0;height:100%;width:100%;min-height:0;border-radius:12px;box-shadow:none}
+.farm-app .maptop{top:12px;left:14px;right:14px}.farm-app .avatar{width:32px;height:32px;font-size:21px;border-radius:10px}
+.farm-app .maptop b{font-size:12px}.farm-app .maptop small{font-size:8px;letter-spacing:0;margin-top:3px}.farm-app .pill{font-size:9px;padding:6px 9px}
+.farm-app .maptools{bottom:11px;right:12px;border-radius:8px;padding:3px}.farm-app .maptools button{width:27px;height:27px;font-size:16px}
+.farm-app .maplabel{display:none}.farm-app .facility-legend{left:12px;bottom:54px;flex-direction:row;flex-wrap:wrap;gap:8px;padding:7px 8px;font-size:8px;max-width:calc(100% - 24px)}
+.farm-app .hint{bottom:52px;font-size:9px;max-width:calc(100% - 30px);padding:8px 12px}
+.shell-center:has(#cancel[hidden]) .hint{display:none}
+.farm-app .selected{top:58px;max-height:calc(100% - 107px);left:12px;max-width:calc(100% - 24px)}
+.farm-app .buildbar{position:relative;display:block;margin:0;padding:8px;background:#fffef7;border:1px solid #dde5d2;border-radius:10px;min-width:0}
+.farm-app .buildintro{display:block;min-width:0;margin:0 0 6px;padding:0}.farm-app .buildintro .eyebrow,.farm-app .buildintro>small{display:none}
+.farm-app .buildintro h2{font-size:11px;line-height:1.3;margin:0;color:#75876a}
+.farm-app #buildings{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px;min-width:0}
+.farm-app .buildcard{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:3px;min-width:0;min-height:58px;height:auto;padding:6px 3px;border-radius:7px}
+.farm-app .buildcard>i{font-size:19px;line-height:1}.farm-app .buildcard>span{min-width:0;max-width:100%;text-align:center}
+.farm-app .buildcard b{display:block;font-size:9px;line-height:1.5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:500}
+.farm-app .buildcard small{display:block;font-size:8px;line-height:1.5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin:0}
+.farm-app .buildbar .cancel{position:absolute;right:8px;top:4px;padding:2px 6px;font-size:9px;margin:0;border:0;background:#f5ecdb}
+.farm-app .layout>aside.shell-sidebar{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(0,1fr) auto;height:100%;min-height:0;margin:0;border:1px solid #dce5d1;border-radius:12px;background:#fffef8;overflow:hidden}
+.shell-tabs{position:static;inset:auto;width:auto;margin:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:3px;height:auto;padding:6px;border-bottom:1px solid #e0e7d5;align-items:stretch}
+.shell-mobile-tabs{position:static;inset:auto;width:auto;margin:0}
+.farm-app #modal nav{position:static;inset:auto;width:auto}
+.shell-tabs button,.shell-mobile-tabs button{border:0;border-radius:6px;background:none;padding:8px 3px;font-size:11px;color:#809170;white-space:nowrap}
+.shell-tabs button[aria-selected=true],.shell-mobile-tabs button[aria-selected=true]{background:#e8f0dc;color:#3e6a45;font-weight:600}
+.shell-pane{min-height:0;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#c7d4b8 transparent}
+.shell-pane .panel{margin:0;padding:13px;border:0;border-radius:0;box-shadow:none}
+.shell-pane .paneltitle h2{font-size:14px}.shell-pane .paneltitle>span{font-size:9px}
+.shell-pane .stock-search{margin-top:12px;padding:6px 8px}.shell-pane .stocks{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:10px 0}
+.shell-pane .stocks>div{padding:7px 6px;min-height:50px;gap:4px;text-align:left;justify-content:flex-start;flex-wrap:nowrap}
+.shell-pane .stocks i{font-size:18px}.shell-pane .stocks b{font-size:17px;margin-top:1px}.shell-pane .stocks span{font-size:9px;width:auto}
+.shell-pane .waterstock,.shell-pane .energystock{padding:7px 0;margin:0;font-size:10px;gap:5px}
+.shell-pane .waterstock>b,.shell-pane .energystock>b{font-size:13px}
+.shell-pane #stock-alerts{padding-top:3px}.shell-pane #stock-alerts p{font-size:9px;margin:4px 0}.shell-pane .stock-alert-heading{margin-bottom:4px}
+.shell-pane .inventory>small{display:none}.shell-pane .inventory-open{font-size:10px;padding:9px 0;margin-top:7px}
+.shell-pane .cargoflow{margin-top:9px;padding-top:9px}.shell-pane .flowrow{padding:7px 0}.shell-pane .flowrow:nth-child(n+3){display:none}
+.shell-pane .orderart{height:45px;margin:10px 0;font-size:35px}.shell-pane .orders h3{font-size:16px;margin:12px 0 6px}
+.shell-pane .orders p{font-size:11px}.shell-pane .orderreward{margin:12px 0}.shell-pane .primary{padding:10px;font-size:11px}
+.shell-pane .auto-trade{margin-top:10px;padding-top:10px}.shell-pane .daily-stages{margin-top:12px}
+.shell-pane .challengeclock{padding:10px;margin:12px 0}.shell-pane .challengeclock strong{font-size:24px}
+.shell-pane #challenge-help{font-size:10px;line-height:1.8}.shell-pane .round-button{margin:9px 0;padding:8px}
+.shell-pane .strategyboard{display:block;margin:0;padding:15px;border:0;background:transparent;border-radius:0}
+.shell-pane .strategyheading{display:block}.shell-pane .strategyheading .eyebrow{display:none}.shell-pane .strategyheading h2{font-size:15px;line-height:1.65;margin:0}
+.shell-pane .strategyheading>span{display:block;font-size:10px;margin-top:5px;line-height:1.6}
+.shell-pane .strategyroutes{display:grid;grid-template-columns:1fr;gap:8px;margin-top:15px}
+.shell-pane .strategyroutes>button{display:grid;grid-template-columns:30px minmax(0,1fr);column-gap:9px;padding:13px;text-align:left}
+.shell-pane .strategyroutes>button>i{grid-row:span 3;font-size:24px;margin:0;align-self:center}
+.shell-pane .strategyroutes b{font-size:12px;margin:0}.shell-pane .strategyroutes span{font-size:10px;margin-top:4px}.shell-pane .strategyroutes small{font-size:9px;margin-top:6px}
+.shell-pane .industryquests{display:block;margin-top:18px;padding:0;border:0}.shell-pane .industryquests>div:first-child{margin-bottom:8px}
+.shell-pane .industryquests>div:first-child b{font-size:12px}.shell-pane .industryquests>div:first-child small{display:block;font-size:9px;line-height:1.7;margin-top:5px}
+.shell-pane .industryquest{padding:10px 0;border-top:1px dashed #dee6d1;gap:8px}.shell-pane .industryquest>span{font-size:10px}.shell-pane .industryquest button{font-size:9px;padding:6px}
+.shell-pane .assetoverview{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;padding:16px;margin:0;border:0;border-radius:0;background:transparent}
+.shell-pane .assetoverview>div:first-child{grid-column:1/-1}.shell-pane .assetoverview h2{font-size:16px;line-height:1.7;margin:9px 0}.shell-pane .assetoverview p{font-size:10px;line-height:1.8}
+.shell-pane .assetstat{padding:12px 0;border:0;border-top:1px solid #e1e7d7}.shell-pane .assetstat b{font-size:25px}.shell-pane .assetstat span{font-size:10px}
+.shell-pane .assetoverview>button{grid-column:1/-1;width:100%;padding:11px;margin:0}
+.shell-side-footer{display:flex;gap:7px;padding:8px;border-top:1px solid #e0e7d5;background:#f9fbf2}
+.shell-side-footer button{flex:1;border:1px solid #d6e1c9;background:#f3f6e9;border-radius:6px;padding:7px 3px;font-size:10px;white-space:nowrap}
+.shell-learning{padding:15px}.shell-learning-heading h2{font-size:15px}.shell-learning-heading p{font-size:11px;color:#849575;line-height:1.8}
+.shell-learning-heading button{display:block;width:100%;margin:8px 0;padding:9px;border:1px solid #d0ddc2;background:#edf3e1;border-radius:7px;font-size:11px}
+.shell-learning .farm-coach{display:flex;flex-wrap:wrap;gap:12px;padding:13px;margin:16px 0;font-size:11px}
+.shell-learning .farm-coach>div:nth-child(2){flex-basis:calc(100% - 45px)}.shell-learning .farm-coach p{font-size:11px}.shell-learning .coach-actions{width:100%}
+.shell-learning .tip{font-size:11px;line-height:1.9;margin:16px 0}
+.farm-app .context-hint{margin:0;min-width:0;gap:10px;font-size:10px;line-height:1.5;padding:0 3px}
+.farm-app .context-hint>span{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.farm-app .context-hint button{font-size:10px;flex-shrink:0;line-height:1.4;padding:2px 0}
+.shell-close-panel,.shell-mobile-tabs{display:none}
+body.farm-app.market-mode{height:auto;overflow:auto}.farm-app #marketpage{height:auto;min-height:calc(100dvh - 54px)}
+@media(max-width:1100px){.farm-app .day small{display:none}.farm-app .wallet #token-symbol{display:none}.farm-app .farm-actions button{padding:7px 9px}.farm-app .village-strip{gap:12px}.farm-app .layout{grid-template-columns:68px minmax(0,1fr) 290px}.shell-rail b{font-size:9px}.shell-rail>button{min-height:43px}.farm-app .buildcard b{font-size:8px}.farm-app .buildcard small{font-size:7px}}
+@media(max-height:760px) and (min-width:901px){.shell-rail{gap:3px}.shell-rail>button{min-height:37px;padding:6px 2px;gap:4px}.shell-rail>button>span{font-size:18px}.farm-app .facility-legend{display:none}.shell-pane .cargoflow{margin-top:6px}.shell-pane .flowrow:nth-child(n+2){display:none}}
+@media(max-width:900px){
+ .farm-app>header{gap:12px;padding:0 12px}.farm-app>header>nav{gap:15px}.farm-app .brand{font-size:14px}.farm-app .brand small{letter-spacing:1.5px}
+ .farm-app #farmmain{padding:7px 9px 5px;gap:7px;grid-template-rows:38px 44px minmax(0,1fr) 24px}
+ .farm-app .layout{grid-template-columns:62px minmax(0,1fr);gap:8px}
+ .shell-center{grid-template-rows:minmax(0,1fr) auto auto;gap:6px}
+ .shell-mobile-tabs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:3px;height:auto;background:#fffef7;padding:4px;border:1px solid #dce5d1;border-radius:8px}
+ .shell-mobile-tabs button{font-size:11px;padding:7px 2px}
+ .farm-app .layout>aside.shell-sidebar{position:absolute;z-index:4;right:0;top:0;bottom:0;width:min(320px,calc(100% - 70px));grid-template-rows:auto auto minmax(0,1fr) auto;box-shadow:-12px 0 30px #35563720}
+ .shell-close-panel{display:block;border:0;background:#eff4e5;padding:10px;text-align:right;font-size:11px;color:#688358}
+ .layout[data-side-open=false]>.shell-sidebar{display:none!important}
+ .farm-app .village-level{width:172px}.farm-app .village-weather{min-width:75px}.farm-app .towneconomy{gap:10px}.farm-app .day{padding-left:10px}.farm-app .day .live{display:none}
+ .farm-app .farm-actions button{font-size:10px;padding:7px 8px}.farm-app .farm-actions #quick-start{min-width:100px}
+}
+@media(max-width:600px){
+ .farm-app>header{height:74px;padding:0 9px;display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:40px 34px;gap:0 7px}.farm-app .brand{gap:3px;font-size:12px;letter-spacing:0}.farm-app .brandicon{font-size:26px}.farm-app .brand small{display:none}
+ .farm-app>header>nav{grid-column:1/-1;grid-row:2;justify-content:center;gap:35px;width:100%;height:34px}.farm-app .nav{font-size:10px}.farm-app .nav span{display:none}.farm-app .wallet{gap:3px}.farm-app .wallet .coin{font-size:17px}.farm-app .wallet b{font-size:12px}
+ .farm-app .wallet .language-toggle{font-size:8px;padding:5px;gap:3px}.farm-app .wallet #wallet{font-size:0;padding:5px 7px;margin:0}.farm-app .wallet #wallet:after{content:'♙';font-size:15px}
+ .farm-app #farmmain{height:calc(100dvh - 74px);padding:6px;grid-template-rows:auto auto minmax(0,1fr) 22px;gap:6px}
+ .farm-app .farm-actions{align-items:center;gap:5px}.farm-app .action-primary{flex-direction:column;gap:4px}.farm-app .action-secondary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;flex:1}
+ .farm-app .farm-actions button{padding:6px 4px;font-size:9px;min-height:28px}.farm-app .farm-actions #quick-start{min-width:87px}.farm-app #quick-play{width:100%}
+ .farm-app .village-strip{gap:6px;padding:6px 8px;flex-wrap:wrap}.farm-app .village-level{width:calc(100% - 95px);max-width:none;gap:6px}.farm-app .village-level b{font-size:10px}.farm-app .village-level small{font-size:8px}.farm-app .village-xp-track{width:120px}
+ .farm-app .village-weather{min-width:80px;padding-left:8px}.farm-app .village-weather b{font-size:10px}.farm-app .towneconomy{font-size:9px;gap:12px;flex:1}.farm-app .towneconomy b{font-size:12px}.farm-app .day{font-size:9px;border:0;padding:0}
+ .farm-app .layout{grid-template-columns:48px minmax(0,1fr);gap:6px}.shell-rail{padding:3px;gap:3px;border-radius:8px}.shell-rail>button{min-height:39px;padding:6px 1px;gap:4px}.shell-rail b{font-size:8px}.shell-rail>button>span{font-size:18px}
+ .farm-app #buildings{grid-template-columns:repeat(4,minmax(0,1fr));gap:4px}.farm-app .buildbar{padding:6px}.farm-app .buildintro{margin-bottom:4px}.farm-app .buildintro h2{font-size:10px}.farm-app .buildcard{min-height:45px;padding:4px 2px;gap:2px}.farm-app .buildcard>i{font-size:17px}.farm-app .buildcard b{font-size:8px}.farm-app .buildcard small{font-size:7px}
+ .farm-app .maptop{top:8px;left:9px;right:9px}.farm-app .avatar{width:27px;height:27px;font-size:17px}.farm-app .maptop>div{gap:6px}.farm-app .maptop b{font-size:10px}.farm-app .maptop small{max-width:125px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.farm-app .pill{display:none}
+ .farm-app .facility-legend{display:none}.farm-app .maptools{right:6px;bottom:7px;padding:2px}.farm-app .maptools button{width:24px;height:26px;font-size:15px}.farm-app .maptools span{padding:0 2px;font-size:9px}
+ .farm-app .layout>aside.shell-sidebar{width:calc(100% - 54px)}.farm-app .context-hint,.farm-app .context-hint button{font-size:8px}.shell-mobile-tabs button{font-size:9px;padding:6px 1px}
+ .shell-pane .stocks{gap:5px}.shell-pane .panel{padding:11px}.farm-app .selected{left:7px;top:50px;max-width:calc(100% - 14px)}
+}

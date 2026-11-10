@@ -1,0 +1,9 @@
+node_modules/
+.env*
+.runtime/
+*.key
+artifacts/
+cache/
+app/backend/generated-assets.mjs
+.DS_Store
+!.env.example

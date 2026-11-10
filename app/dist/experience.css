@@ -1,0 +1,165 @@
+/* Farm workbench: clear primary actions, quieter live data, larger controls. */
+body {font-family: 'Avenir Next', 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;}
+button, input, select {font: inherit;}
+button {transition: background-color .18s, border-color .18s, transform .18s;}
+button:hover:not(:disabled) {filter: brightness(.97);}
+button:active:not(:disabled) {transform: translateY(1px);}
+:focus-visible {outline: 3px solid #4d8b75; outline-offset: 3px;}
+[hidden] {display: none !important;}
+b, strong, td, input[type=number] {font-variant-numeric: tabular-nums;}
+.heading {margin-bottom: 22px;gap: 22px;}
+.heading h1 {letter-spacing: -.7px; font-weight: 700;}
+.heading p {color: #6d806e;}
+.farm-actions {display: flex;align-items: center;justify-content: space-between;gap: 12px;padding: 12px 0 18px;}
+.action-primary, .action-secondary {display: flex;align-items: center;gap: 8px;flex-wrap: wrap;}
+.farm-actions button {border: 1px solid #d4dfcf;background: #fdfef8;border-radius: 9px;padding: 11px 15px;font-size: 12px;min-height: 42px;}
+.farm-actions #quick-start {background: #2e694a;color: #fffef0;border-color: #2e694a;font-weight: 600;min-width: 134px;}
+.farm-actions #quick-play {background: #eaf0df;border-color: #d3dfc4;}
+.farm-actions button:hover {border-color: #6e987e;}
+.farm-coach {display: flex;gap: 17px;align-items: center;padding: 17px 20px;background: #eaf0e0;border: 1px solid #d8e2cb;border-radius: 12px;margin-bottom: 12px;}
+.coach-number {font-size: 24px;font-weight: 600;color: #467051;white-space: nowrap;}
+.coach-number small {font-size: 11px;color: #819277;margin-left: 4px;}
+.farm-coach>div:nth-child(2) {flex: 1;}
+.farm-coach b {font-size: 13px;}
+.farm-coach p {font-size: 12px;line-height: 1.65;color: #697d62;margin: 5px 0 0;max-width: 70ch;}
+.coach-actions {display: flex;gap: 8px;flex-wrap: wrap;align-items: center;}
+.coach-actions button, .context-hint button {padding: 8px 11px;border: 1px solid #bdceb2;border-radius: 7px;background: #f8faef;white-space: nowrap;font-size: 11px;}
+.coach-actions #coach-skip {background: transparent;border-color: transparent;color: #6c7f61;font-size: 10px;}
+.context-hint {display: flex;align-items: center;justify-content: space-between;gap: 14px;margin: 0 0 17px;color: #738367;font-size: 11px;line-height: 1.7;}
+.context-hint button {border: 0;background: none;color: #2e694a;text-decoration: underline;text-underline-offset: 3px;padding: 4px 0;}
+.layout {grid-template-columns: minmax(0, 1fr) 310px;gap: 20px;align-items: start;}
+.world {position: sticky;top: 18px;height: clamp(640px, 80dvh, 880px);min-height: 0;border-radius: 17px;box-shadow: 0 10px 30px #3c563010;}
+.maptop {top: 20px;left: 21px;right: 21px;}
+.facility-legend {bottom: 118px;}
+.hint {max-width: calc(100% - 40px);white-space: normal;line-height: 1.6;text-align: center;width: max-content;bottom: 75px;}
+.selected {max-height: calc(100% - 170px);overflow: auto;}
+.panel {padding: 20px;border-color: #e0e5d6;}
+.paneltitle h2 {font-size: 15px;}
+.stock-search {display: flex;align-items: center;gap: 7px;margin-top: 17px;border: 1px solid #dce3d2;border-radius: 8px;background: #f7f9ef;padding: 8px 9px;}
+.stock-search>span {font-size: 20px;line-height: 1;color: #71866a;}
+.stock-search input {min-width: 0;width: 100%;border: 0;outline: 0;background: transparent;color: #3d5e42;font-size: 11px;}
+.stock-search:focus-within {outline: 2px solid #7fa28a;outline-offset: 1px;}
+.stock-search input:focus-visible {outline: 0;}
+.stock-search button {border: 0;background: none;padding: 0 3px;color: #84947d;font-size: 18px;}
+.stocks {display: grid;grid-template-columns: repeat(3,minmax(0,1fr));gap: 8px;margin: 12px 0;}
+.stocks>div {position: relative;gap: 6px;padding: 9px 7px;min-height: 65px;border-radius: 8px;background: #f2f5e9;}
+.stocks i {font-size: 21px;}
+.stocks b {font-size: 19px;line-height: 1.2;color: #38563d;}
+.stocks span {font-size: 10px;min-width: 0;color: #7b8d70;}
+.stock-dot {font-size: 9px;color: #9d7850;font-weight: 600;margin-left: auto;}
+.stocks .stock-dot {position: absolute;right: 5px;top: 3px;}
+.stocks [data-stock-state=low] {background: #f5ecd9;}
+.stocks [data-stock-state=full] {background: #efe1d5;}
+.stock-empty {font-size: 11px;color: #879579;line-height: 1.7;}
+.waterstock, .energystock {flex-wrap: wrap;gap: 6px;line-height: 1.7;}
+#stock-alerts {padding: 8px 0 0;}
+.stock-alert-heading {display: flex;gap: 7px;color: #947144;font-size: 10px;font-weight: 600;margin-bottom: 7px;}
+.stock-alert-heading b {background: #eee1c6;min-width: 17px;text-align: center;border-radius: 4px;}
+#stock-alerts p {font-size: 10px;display: flex;align-items: center;gap: 7px;line-height: 1.6;margin: 5px 0;color: #877451;}
+#stock-alerts p span {margin-left: auto;}
+.alert-dot {width: 5px;height: 5px;background: #b68c4d;border-radius: 50%;}
+#stock-alerts .stock-calm {color: #809072;font-size: 10px;}
+.inventory-open {width: 100%;padding: 9px 5px;border: 0;border-top: 1px solid #e4e9da;background: transparent;text-align: left;font-size: 11px;margin-top: 11px;color: #537650;}
+.orderart {height: 50px;font-size: 39px;}
+.orders p {line-height: 1.65;}
+.auto-trade {margin-top: 14px;border-top: 1px solid #e5e9db;padding-top: 12px;}
+.auto-trade label {display: flex;align-items: center;gap: 8px;font-size: 11px;cursor: pointer;line-height: 1.5;}
+input[type=checkbox] {accent-color: #38734f;min-width: 17px;width: 17px;height: 17px;cursor: pointer;}
+.auto-trade small {display: block;font-size: 10px;color: #859578;margin: 6px 0 0 26px;line-height: 1.6;}
+.experience-intro {max-width: 65ch;}
+.inventory-toolbar, .report-tools {display: flex;gap: 10px;align-items: center;margin: 22px 0 12px;}
+.inventory-toolbar input {flex: 1;min-width: 0;}
+.inventory-toolbar input, .inventory-toolbar select, .report-tools select, .report-tools button {border: 1px solid #cfdcc7;border-radius: 8px;background: #f9fbf2;padding: 10px;font-size: 12px;color: #4d6c46;}
+.report-tools {justify-content: space-between;}
+.inventory-table-wrap {overflow-x: auto;}
+.inventory-table {width: 100%;border-collapse: collapse;font-size: 12px;}
+.inventory-table th, .inventory-table td {text-align: left;padding: 14px 10px;border-bottom: 1px solid #e2e8d7;white-space: nowrap;}
+.inventory-table th {font-weight: 500;}
+.inventory-table thead th {font-size: 10px;color: #849376;background: #f0f4e7;font-weight: 500;}
+.inventory-table small {display: block;font-size: 9px;color: #8d9c7e;margin-top: 5px;font-weight: 400;}
+.inventory-table td b {font-size: 17px;font-weight: 600;}
+.stock-status {font-size: 10px;padding: 5px 7px;background: #eaf0df;border-radius: 5px;color: #647f51;}
+[data-stock-state=low] .stock-status, [data-stock-state=full] .stock-status {background: #f2e6ca;color: #9a7945;}
+.experience-footnote {font-size: 11px!important;line-height: 1.8;color: #829476!important;}
+.sales-summary, .reuse-summary {display: grid;grid-template-columns: repeat(3,minmax(0,1fr));gap: 12px;margin: 20px 0;background: #ecf2e3;border-radius: 12px;padding: 20px;}
+.sales-summary b {display: block;font-size: 29px;letter-spacing: -.5px;color: #3c6c46;}
+.sales-summary span, .reuse-summary span {display: block;font-size: 10px;color: #7c9270;margin-top: 5px;}
+.empty-report {text-align: center!important;white-space: normal!important;color: #91a183;font-size: 12px;line-height: 1.9;padding: 30px 20px!important;}
+.report-recent-title {font-size: 13px;margin: 24px 0 7px;}
+.sale-row {display: flex;align-items: center;gap: 15px;padding: 12px 0;border-bottom: 1px dashed #e0e7d4;font-size: 12px;}
+.sale-row time {font-size: 10px;color: #8b9a7c;font-variant-numeric: tabular-nums;}
+.sale-row span {flex: 1;}
+.sale-row small {display: block;font-size: 9px;color: #91a17f;margin-top: 3px;}
+.sale-row b {color: #9c8147;font-size: 13px;}
+.settings-section {border-top: 1px solid #dfe7d5;margin-top: 22px;padding-top: 20px;}
+.settings-section h2 {font-size: 15px;margin-bottom: 8px;}
+.setting-toggle, .setting-number {display: flex;justify-content: space-between;align-items: center;gap: 18px;padding: 12px 0;font-size: 12px;cursor: pointer;}
+.setting-toggle b {font-weight: 500;}
+.setting-toggle small {display: block;font-size: 10px;color: #8b9b7e;margin-top: 5px;line-height: 1.6;}
+.setting-number input[type=number] {width: 82px;}
+.setting-number input[type=range] {accent-color: #4b8058;width: 145px;}
+.setting-number input[type=number], .threshold-grid input {border: 1px solid #cfddc5;background: #f9fcf2;padding: 8px;border-radius: 7px;color: #4d7147;}
+.threshold-grid {display: grid;grid-template-columns: repeat(4,minmax(0,1fr));gap: 12px;margin-top: 12px;}
+.threshold-grid label {font-size: 11px;color: #789067;}
+.threshold-grid input {display: block;width: 100%;margin-top: 7px;}
+.subtle-button {background: #ecf3e4;border: 1px solid #cfddc3;border-radius: 7px;padding: 9px 13px;font-size: 11px;}
+.controls-grid {display: grid;grid-template-columns: repeat(2,minmax(0,1fr));gap: 12px 25px;margin: 25px 0;}
+.controls-grid>div {display: flex;gap: 10px;align-items: center;font-size: 11px;color: #6a845b;}
+kbd {border: 1px solid #cdd8c3;border-bottom-width: 2px;border-radius: 5px;padding: 5px 7px;font: inherit;background: #f6f9ee;color: #496942;white-space: nowrap;}
+.help-actions {display: flex;gap: 12px;margin-top: 22px;}
+.help-actions button {flex: 1;padding: 12px;border: 1px solid #cbdabc;border-radius: 9px;}
+.help-actions button+button {background: #f1f5e8;}
+.starter-chain {padding: 28px 15px;background: #eaf1df;text-align: center;font-size: 27px;border-radius: 12px;margin: 20px 0;letter-spacing: 4px;}
+.reuse-layout {display: flex;gap: 13px;align-items: flex-start;border: 1px solid #c8d8bb;background: #edf3e3;padding: 18px;border-radius: 11px;margin-top: 20px;cursor: pointer;}
+.reuse-layout small {display: block;font-size: 11px;line-height: 1.8;color: #819570;margin-top: 6px;}
+.reuse-summary {background: #f1f3e7;}
+.reuse-summary b {display: block;margin-top: 7px;font-size: 20px;}
+.sr-only {position: absolute;width: 1px;height: 1px;padding: 0;margin: -1px;overflow: hidden;clip: rect(0,0,0,0);white-space: nowrap;border: 0;}
+@media (max-width: 1100px) {
+  .farm-actions {flex-wrap: wrap;}
+  .layout {grid-template-columns: minmax(0,1fr) 290px;}
+  .farm-coach {align-items: flex-start;flex-wrap: wrap;}
+  .coach-actions {margin-left: 47px;}
+  .day {display: none;}
+}
+@media (max-width: 760px) {
+  .heading {margin-bottom: 12px;}
+  .farm-actions {gap: 10px;}
+  .action-secondary {gap: 6px;}
+  .farm-actions button {padding: 10px 12px;font-size: 11px;}
+  .farm-coach {padding: 14px;gap: 12px;}
+  .farm-coach p {font-size: 11px;}
+  .coach-actions {margin-left: 0;}
+  .context-hint {font-size: 10px;align-items: flex-start;}
+  .context-hint button {font-size: 10px;}
+  .layout {display: block;}
+  .world {position: relative;top: 0;height: 490px;min-height: 0;}
+  .layout>aside {margin-top: 16px;}
+  .stocks {grid-template-columns: repeat(5,minmax(0,1fr));}
+  .stocks>div {flex-wrap: wrap;justify-content: center;text-align: center;}
+  .stocks span {width: 100%;}
+  .facility-legend {bottom: 113px;}
+  .maplabel {display: none;}
+  .maplabel small {letter-spacing: 0;max-width: 170px;line-height: 1.6;}
+  dialog {padding: 24px;max-height: 90dvh;}
+  .threshold-grid {grid-template-columns: repeat(2,minmax(0,1fr));}
+  .inventory-table th, .inventory-table td {padding: 12px 7px;}
+  .inventory-table thead th {font-size: 9px;}
+  .sales-summary, .reuse-summary {padding: 14px;gap: 8px;}
+  .sales-summary b {font-size: 24px;}
+  .reuse-summary b {font-size: 16px;}
+  .controls-grid {grid-template-columns: 1fr;}
+  .help-actions {flex-direction: column;}
+  .starter-chain {font-size: 22px;letter-spacing: 1px;}
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {scroll-behavior: auto!important;transition: none!important;animation: none!important;}
+}
+
+/* Expanded produce and forestry trade selections. */
+.orderchoices {flex-wrap: wrap;gap: 6px;}
+.orderchoices button {flex: 1 1 28%;min-width: 66px;}
+@media (max-width: 760px) {.stocks {grid-template-columns: repeat(4,minmax(0,1fr));}}
+
+.setting-number select {max-width:180px;padding:8px;border:1px solid #cfddc5;border-radius:7px;background:#f9fcf2;color:#4d7147;}
+.warehouse-marker {will-change:transform;}

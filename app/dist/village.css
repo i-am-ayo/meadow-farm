@@ -1,0 +1,92 @@
+/* Village desk: one compact main-screen summary, progressively opened tools. */
+.village-strip{display:flex;align-items:center;gap:18px;padding:16px 18px;margin:12px 0 20px;border:1px solid #d5dfcc;background:#f9fbf3;border-radius:13px;color:#34583e}
+.village-strip button{font:inherit;color:inherit;cursor:pointer}
+.village-level,.village-weather{display:flex;align-items:center;gap:12px;text-align:left;border:0;background:none;padding:0;min-width:180px}
+.village-emblem{display:grid;place-items:center;width:39px;height:39px;background:#e1ebd6;border-radius:50%;font-size:25px;color:#527844}
+.village-level b,.village-weather b{display:block;font-size:12px;line-height:1.5}
+.village-level small,.village-weather small{display:block;font-size:10px;color:#7a8a6f;margin-top:3px;line-height:1.5}
+.village-xp-track{display:block;height:4px;background:#e2e8d8;border-radius:4px;margin-top:6px;width:160px;overflow:hidden}
+.village-xp-track i{display:block;height:100%;background:#6e9463;transition:width .3s}
+.village-weather{min-width:200px;border-left:1px solid #dce4d1;padding-left:20px;flex:1}
+#village-weather-icon{font-size:25px}
+.village-shortcuts{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}
+.village-shortcuts button{border:1px solid #d7dfcd;background:#f1f5e9;border-radius:7px;padding:8px 11px;font-size:11px;white-space:nowrap}
+.village-desk{color:#34513c;clear:both}
+.village-desk h1{font-size:29px;letter-spacing:-.5px;margin-bottom:12px}
+.village-desk h2{font-size:18px;margin:0 0 8px}
+.village-desk h3{font-size:15px;margin:8px 0}
+.village-desk p{line-height:1.8;font-size:12px}
+.village-desk button,.village-desk select{font:inherit;font-size:12px;border:1px solid #ccd9bf;background:#f7faef;border-radius:7px;padding:10px 13px;color:#426347;cursor:pointer}
+.village-desk button:disabled{opacity:.5;cursor:default}
+.village-desk button.primary{background:#376c4d;border-color:#376c4d;color:#fff}
+.village-tabs{display:flex;gap:6px;flex-wrap:wrap;border-bottom:1px solid #d9e3ce;padding:0 0 14px;margin:20px 0}
+.village-tabs button{background:transparent;border-color:transparent;padding:9px 12px}
+.village-tabs button[aria-pressed=true]{background:#e7efdc;color:#376444;border-color:#d0dec2;font-weight:600}
+.village-section-heading{display:flex;justify-content:space-between;align-items:center;gap:18px;margin:22px 0 14px}
+.village-section-heading p{margin:0;color:#7c8e70}
+.village-muted{color:#839278;font-size:11px!important;line-height:1.8;margin-top:16px}
+.village-note{border-left:3px solid #b8caa1;padding:11px 15px;background:#edf2e4;color:#687d59;line-height:1.9!important;margin:15px 0 20px}
+.request-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;margin:20px 0}
+.request-card{border:1px solid #d6dfca;border-radius:12px;padding:17px;background:#fafbf3;display:flex;flex-direction:column;gap:12px}
+.request-heading{display:flex;align-items:center;gap:10px}
+.request-heading h3{margin:4px 0;font-size:14px}
+.request-heading small{color:#839175;font-size:10px}
+.request-avatar{display:grid;place-items:center;flex-shrink:0;width:43px;height:43px;font-size:26px;background:#eff1df;border-radius:10px}
+.request-goods{display:flex;flex-wrap:wrap;gap:8px;flex:1}
+.request-goods>span{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:7px 9px;border:1px solid #e0e4d3;background:#f0f3e6;border-radius:7px;font-size:11px}
+.request-goods b{font-size:12px;margin-left:auto}
+.request-goods .missing{color:#967e52;background:#f5f0df;border-color:#e8debd}
+.request-goods .ready{color:#4e7e50}
+.request-reward{font-size:11px;color:#7d8754;line-height:1.7}
+.request-actions{display:flex;gap:9px;flex-wrap:wrap}
+.request-used{opacity:.65}
+.active-request{border-color:#8daa79;background:#f1f7e8;margin:20px 0}
+.active-request .request-goods{flex:initial}
+.request-clock{margin-left:auto;font-size:15px;color:#698354;white-space:nowrap}
+.research-summary{display:flex;gap:18px;align-items:center;padding:18px;background:#edf3e3;border-radius:12px;margin-top:20px}
+.research-summary>span{font-size:35px}
+.research-summary p{color:#77896b;margin:0}
+.research-summary strong{font-size:30px;margin-left:auto;white-space:nowrap}
+.research-summary strong small{display:block;font-size:10px;font-weight:400}
+.research-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:20px 0}
+.research-card{border:1px solid #d7e0cb;background:#fafbf4;border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:9px}
+.research-icon{font-size:30px}
+.research-card h3,.research-card p{margin:0}
+.research-card p{color:#7a8c6d;flex:1}
+.research-card small{font-size:11px;color:#7d8d6f}
+.research-ranks{display:flex;gap:5px;margin-top:10px}
+.research-ranks i{height:6px;border-radius:4px;background:#e1e8d6;flex:1}
+.research-ranks .unlocked{background:#82a468}
+.research-card button{margin-top:8px}
+.production-chains{display:flex;gap:8px;flex-wrap:wrap}
+.production-chains span{background:#ecefdf;padding:8px 12px;border-radius:7px;font-size:13px}
+.production-list{display:grid;gap:10px}
+.production-row{display:flex;gap:14px;align-items:center;border:1px solid #dce3d1;padding:14px;border-radius:10px;background:#fafbf4}
+.production-icon{font-size:26px}
+.production-info{flex:1;min-width:0}
+.production-info>b{font-size:13px;display:block}
+.production-info>b>small{font-weight:400;color:#8d997f;font-size:10px;margin-left:8px;white-space:nowrap}
+.production-info p{font-size:12px;color:#5e8753;margin:5px 0}
+.production-info .production-blocked{color:#a08655}
+.production-info>small{font-size:10px;color:#87977a;display:block;line-height:1.7}
+.production-recipe{font-size:11px;color:#748867;display:block;margin-top:6px}
+.production-row>button{white-space:nowrap}
+.village-empty{padding:30px;color:#7f916e;text-align:center}
+.weather-current{display:flex;gap:23px;align-items:center;background:#edf3e0;border:1px solid #d6e2c4;border-radius:15px;padding:25px;margin:20px 0 28px}
+.weather-current>span{font-size:64px}
+.weather-current>div{flex:1}
+.weather-current small{font-size:11px;color:#879878}
+.weather-current h2{font-size:25px;margin:7px 0}
+.weather-current p{margin:4px 0;color:#768c63}
+.weather-forecast{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;margin:18px 0}
+.weather-forecast article{display:flex;flex-direction:column;align-items:center;text-align:center;padding:20px 15px;background:#f4f6eb;border-radius:10px;border:1px solid #dce4cf}
+.weather-forecast span{font-size:34px}.weather-forecast small{font-size:11px;color:#8b9a7d;margin:10px 0 5px}.weather-forecast b{font-size:14px}.weather-forecast p{color:#809270;font-size:11px}
+.achievement-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:20px 0}
+.achievement-card{display:flex;gap:13px;align-items:center;border:1px solid #dae3ce;border-radius:12px;padding:17px;background:#fafbf4;flex-wrap:wrap}
+.achievement-card>span{font-size:28px}.achievement-card>div{flex:1;min-width:150px}.achievement-card h3{margin:0 0 10px;font-size:13px}.achievement-card small{display:block;font-size:10px;color:#879879;margin-top:5px}
+.achievement-card progress{appearance:none;display:block;width:100%;height:5px;border:0;border-radius:5px;overflow:hidden;background:#e4e9d8;accent-color:#8ca970}.achievement-card progress::-webkit-progress-bar{background:#e4e9d8}.achievement-card progress::-webkit-progress-value{background:#8ca970}
+.achievement-card.claimed{background:#eff3e6}
+.world[data-weather=rain]{box-shadow:inset 0 0 55px #8bb9bc30}.world[data-weather=sun]{box-shadow:inset 0 0 55px #e6d99525}
+@media(min-width:1000px){dialog:has(.village-desk){max-width:960px;width:calc(100% - 80px)}}
+@media(max-width:1100px){.village-strip{flex-wrap:wrap;gap:15px}.village-shortcuts{justify-content:flex-start;flex:1}.village-weather{min-width:190px}.village-level{min-width:200px}}
+@media(max-width:700px){.village-strip{padding:13px;gap:13px}.village-level{min-width:155px}.village-weather{min-width:140px;padding-left:12px}.village-xp-track{width:130px}.village-weather small{max-width:140px}.village-shortcuts{flex-basis:100%}.village-shortcuts button{flex:1;padding:8px 6px;font-size:10px}.request-grid,.research-grid{grid-template-columns:1fr}.achievement-grid{grid-template-columns:1fr}.village-desk h1{font-size:23px}.village-tabs{gap:2px}.village-tabs button{font-size:11px;padding:8px 7px}.weather-current{flex-wrap:wrap;padding:18px;gap:15px}.weather-current>span{font-size:44px}.weather-current>button{width:100%}.weather-forecast{gap:7px}.weather-forecast article{padding:15px 8px}.village-section-heading{flex-wrap:wrap}.research-summary{gap:12px}.research-summary strong{font-size:23px}.production-row{padding:12px;gap:10px}.production-icon{display:none}.production-row button{font-size:11px;padding:9px}}

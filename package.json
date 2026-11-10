@@ -1,0 +1,26 @@
+{
+  "name": "meadow-farm-sepolia",
+  "version": "8.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "build": "node app/tools/build-chain-site.mjs .",
+    "preview": "node --env-file-if-exists=.env tools/start-local.mjs",
+    "compile": "hardhat compile",
+    "test": "npm run compile && node --test app/test/*.test.mjs app/chain-test/*.test.mjs",
+    "start": "node server.mjs"
+  },
+  "dependencies": {
+    "ethers": "6.17.0"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2",
+    "@nomicfoundation/hardhat-ethers": "4.2.1",
+    "@openzeppelin/contracts": "5.6.1",
+    "hardhat": "3.20.0",
+    "solc": "0.8.37"
+  }
+}
